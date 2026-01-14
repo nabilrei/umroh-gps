@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#2c7744">
+    <meta name="description" content="Aplikasi Pemandu Umroh dengan GPS">
+    <title>Pemandu Umroh GPS</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" href="icon-192.png">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <h1>🕋 Pemandu Umroh</h1>
+            <p class="subtitle">Klik pada peta untuk simulasi lokasi</p>
+        </header>
+
+        <!-- Map Container -->
+        <div id="map"></div>
+
+        <!-- Info Panel -->
+        <div class="info-panel" id="infoPanel">
+            <div class="info-header">
+                <h2 id="locationTitle">Selamat Datang</h2>
+                <button class="close-btn" onclick="closePanel()">✕</button>
+            </div>
+            <div class="info-content" id="infoContent">
+                <p>Klik pada peta untuk memulai panduan umroh. Aplikasi akan mendeteksi lokasi Anda dan memberikan panduan sesuai dengan tempat ritual umroh.</p>
+                <div class="info-legend">
+                    <h3>Lokasi Ritual:</h3>
+                    <ul>
+                        <li>🟢 Miqat - Tempat Ihrom</li>
+                        <li>🔴 Masjidil Haram - Tawaf</li>
+                        <li>🟡 Safa & Marwa - Sa'i</li>
+                        <li>🔵 Area Tahalul</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Current Location Display -->
+        <div class="location-display" id="locationDisplay">
+            <div class="location-info">
+                <span class="location-icon">📍</span>
+                <span id="currentLocation">Pilih lokasi di peta</span>
+            </div>
+        </div>
+
+        <!-- Install Prompt -->
+        <div class="install-prompt" id="installPrompt" style="display: none;">
+            <p>Install aplikasi untuk akses offline</p>
+            <button onclick="installApp()">Install</button>
+            <button onclick="dismissInstall()">Nanti</button>
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- App JS -->
+    <script src="app.js"></script>
+</body>
+</html>
